@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Salades en Bocal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cream: #F5F3EE; --emerald: #1E7A4A; --charcoal: #2C2C2C; --light-sage: #EEF2EB; --mid-sage: #D4E0CE; --white: #ffffff; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.8; }
+  header { background: var(--emerald); padding: 20px 24px; text-align: center; }
+  header a { font-family: 'Playfair Display', serif; font-size: 20px; color: white; text-decoration: none; opacity: 0.9; }
+  .content { max-width: 600px; margin: 0 auto; padding: 60px 24px; text-align: center; }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 5vw, 42px); color: var(--emerald); margin-bottom: 16px; }
+  .subtitle { font-size: 16px; color: #555; margin-bottom: 48px; }
+  .contact-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 40px 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+    margin-bottom: 24px;
+  }
+  .contact-icon { font-size: 48px; margin-bottom: 16px; }
+  .contact-card h2 { font-size: 18px; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
+  .contact-card p { font-size: 14px; color: #666; margin-bottom: 20px; }
+  .email-link {
+    display: inline-block;
+    background: var(--emerald);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .email-link:hover { background: #155c36; }
+  .response-note {
+    background: var(--light-sage);
+    border-radius: 10px;
+    padding: 16px 24px;
+    font-size: 13px;
+    color: #4a5a43;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  footer { background: var(--charcoal); padding: 28px 24px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.4); margin-top: 60px; }
+  footer a { color: rgba(255,255,255,0.55); text-decoration: none; margin: 0 10px; }
+  footer a:hover { color: white; }
+  .footer-links { margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html">← Salades en Bocal · Camille Morel</a>
+</header>
+
+<div class="content">
+  <h1>Contactez-nous</h1>
+  <p class="subtitle">Une question sur votre commande ou sur le contenu ? Nous sommes là pour vous aider.</p>
+
+  <div class="contact-card">
+    <div class="contact-icon">✉️</div>
+    <h2>Envoyez-nous un e-mail</h2>
+    <p>Pour toute question concernant votre achat, l'accès à votre contenu ou un remboursement, écrivez-nous directement.</p>
+    <a href="mailto:lanovdigital@gmail.com" class="email-link">lanovdigital@gmail.com</a>
+  </div>
+
+  <div class="response-note">
+    ⏱ Réponse garantie sous <strong>&nbsp;24 heures&nbsp;</strong> (jours ouvrés)
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="conditions.html">Conditions d'utilisation</a>
+    <a href="confidentialite.html">Politique de confidentialité</a>
+    <a href="remboursement.html">Politique de remboursement</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  © 2025 Camille Morel · Tous droits réservés · Produit numérique
+</footer>
+
+</body>
+</html>

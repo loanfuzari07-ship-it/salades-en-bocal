@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salades en Bocal + Sauces — Camille Morel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;500;600;700;900&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.383.0/umd/lucide.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F3EE;
+    --sage: #5A8A6A;
+    --emerald: #1E7A4A;
+    --gold: #C9A84C;
+    --terracotta: #C0622D;
+    --charcoal: #2C2C2C;
+    --light-sage: #E8F2EC;
+    --mid-sage: #C2DBC9;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  img { display: block; width: 100%; }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  section { padding: 60px 0; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 700;
+    color: var(--emerald);
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  .btn-primary {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #2D9E6B 0%, #1E7A4A 60%, #155c36 100%);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 18px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #1E7A4A 0%, #155c36 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30,122,74,0.3);
+    animation: none;
+  }
+  .btn-primary:active { transform: translateY(0); box-shadow: none; }
+
+  .btn-gold {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 20px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+    animation: pulse-gold 2.5s ease-in-out infinite;
+  }
+  .btn-gold:hover {
+    background: #b8942a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(201,168,76,0.35);
+    animation: none;
+  }
+  .btn-gold:active { transform: translateY(0); box-shadow: none; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--light-sage);
+    text-align: center;
+    padding: 64px 24px 56px;
+  }
+  .hero-brand {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(42px, 8vw, 72px);
+    color: var(--emerald);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hero-brand-sub {
+    display: inline-block;
+    background: var(--emerald);
+    color: var(--white);
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+  }
+  .hero-brand-molhos {
+    font-size: 16px;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3.5vw, 30px);
+    font-weight: 700;
+    color: var(--charcoal);
+    max-width: 560px;
+    margin: 0 auto 16px;
+    line-height: 1.3;
+  }
+  .hero p {
+    font-size: clamp(14px, 2vw, 16px);
+    color: #4a5a43;
+    max-width: 520px;
+    margin: 0 auto 36px;
+  }
+  .hero-img-wrap {
+    max-width: 320px;
+    margin: 0 auto 36px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(45,106,79,0.15);
+  }
+  .hero-img-placeholder {
+    background: var(--mid-sage);
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+  }
+
+  /* ── O QUE VOCÊ VAI ENCONTRAR ── */
+  .features { background: var(--white); }
+  .features-list {
+    list-style: none;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--light-sage);
+    font-size: 15px;
+    color: var(--charcoal);
+  }
+  .features-list li:last-child { border-bottom: none; }
+  .check-icon {
+    width: 26px; height: 26px;
+    background: var(--sage);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .check-icon svg {
+    width: 14px; height: 14px;
+    stroke: white;
+    stroke-width: 2.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .fridge-img {
+    margin-top: 28px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--mid-sage);
+    height: 260px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ── SALADAS ── */
+  .salades { background: var(--cream); }
+  .salades-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+  .salada-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  .salada-img-placeholder {
+    background: var(--mid-sage);
+    aspect-ratio: 768 / 960;
+    width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 56px;
+  }
+  .salada-info {
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .salada-info h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .salada-meta {
+    font-size: 11px;
+    color: #888;
+  }
+
+  /* ── MOLHOS ── */
+  .molhos { background: var(--white); }
+  .molhos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .molho-img-placeholder {
+    background: var(--light-sage);
+    border-radius: 10px;
+    aspect-ratio: 480 / 600;
+    width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 56px;
+  }
+
+  /* ── PREVIEW ── */
+  .preview { background: var(--light-sage); text-align: center; }
+  .preview-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .phone-wrap {
+    max-width: 200px;
+    margin: 0 auto;
+    background: #1a1a1a;
+    border-radius: 32px;
+    padding: 14px 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  }
+  .phone-screen {
+    background: var(--light-sage);
+    border-radius: 22px;
+    height: 300px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .play-circle {
+    width: 56px; height: 56px;
+    background: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  .phone-screen p { font-size: 12px; color: #666; }
+
+  .preview-carousel {
+    margin-top: 32px;
+    overflow: hidden;
+    width: 100%;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 16px;
+    animation: scroll 20s linear infinite;
+    width: max-content;
+  }
+  .carousel-item {
+    width: 280px;
+    aspect-ratio: 1051 / 1491;
+    background: var(--mid-sage);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    flex-shrink: 0;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  /* ── BÔNUS ── */
+  .bonus { background: var(--white); }
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+  }
+  .bonus-card {
+    background: var(--cream);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    text-align: center;
+  }
+  .bonus-img-placeholder {
+    background: var(--light-sage);
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 48px;
+  }
+  .bonus-card-body { padding: 16px; }
+  .bonus-card h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--sage);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+  .bonus-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 2px;
+    line-height: 1.3;
+  }
+  .bonus-card .bonus-desc { font-size: 13px; font-weight: 600; color: #555; text-transform: uppercase; margin-bottom: 10px; }
+  .bonus-price-from { text-decoration: line-through; font-size: 11px; color: #aaa; }
+  .bonus-free {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-top: 2px;
+  }
+
+  .problemas-list {
+    list-style: none;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .problemas-list li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--charcoal);
+    border-bottom: 1px solid var(--mid-sage);
+  }
+  .problemas-list li:last-child { border-bottom: none; }
+  .x-icon {
+    width: 26px; height: 26px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ── OFERTA ── */
+  .oferta {
+    background: var(--emerald);
+    padding: 60px 24px;
+    text-align: center;
+  }
+  .oferta-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 28px;
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  }
+  .oferta-card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 800;
+    color: var(--charcoal);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+  .oferta-pack-placeholder {
+    background: var(--light-sage);
+    border-radius: 10px;
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 72px;
+    margin-bottom: 24px;
+  }
+  .oferta-items {
+    list-style: none;
+    text-align: left;
+    margin: 0 auto 24px;
+  }
+  .oferta-items li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--charcoal);
+    border-bottom: 1px solid var(--light-sage);
+    align-items: center;
+  }
+  .oferta-items li:last-child { border-bottom: none; }
+  .star { color: var(--emerald); font-weight: 700; flex-shrink: 0; }
+  .price-anchor {
+    font-size: 14px;
+    color: #aaa;
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+  .price-main {
+    font-family: 'Inter', sans-serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--emerald);
+    line-height: 1;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .price-note {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 24px;
+  }
+  .secure {
+    font-size: 11px;
+    color: #555;
+    margin-top: 12px;
+    font-weight: 500;
+  }
+
+  /* ── GARANTIA ── */
+  .garantia { background: var(--cream); }
+  .garantia-box {
+    background: var(--white);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 40px 32px;
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .garantia-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+  }
+  .garantia-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--emerald);
+    margin-bottom: 12px;
+  }
+  .garantia-box p { font-size: 14px; color: #555; line-height: 1.75; }
+
+  /* ── AUTORA ── */
+  .autora { background: var(--white); }
+  .autora-name-header {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
+    margin-bottom: 20px;
+  }
+  .autora-photo-placeholder {
+    background: var(--mid-sage);
+    border-radius: 12px;
+    height: 300px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 80px;
+    max-width: 380px;
+    margin: 0 auto 24px;
+  }
+  .autora-bio {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 520px;
+    margin: 0 auto 24px;
+  }
+  .testimonials-manual {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testimonials-window {
+    overflow: hidden;
+    flex: 1;
+  }
+  .testimonials-track-manual {
+    display: flex;
+    gap: 16px;
+    transition: transform 0.4s ease;
+  }
+  .testimonial-item {
+    width: calc(50% - 8px);
+    aspect-ratio: 1122 / 1402;
+    background: var(--light-sage);
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+  .carousel-btn {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 2px solid var(--emerald);
+    background: var(--white);
+    color: var(--emerald);
+    font-size: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s, color 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .carousel-btn:hover { background: var(--emerald); color: var(--white); }
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--mid-sage);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .dot.active { background: var(--emerald); }
+  @media (max-width: 600px) {
+    .testimonial-item { width: 100%; }
+  }
+  .proof-item {
+    background: var(--light-sage);
+    border-radius: 8px;
+    padding: 14px 8px;
+    text-align: center;
+  }
+  .proof-item-img {
+    background: var(--mid-sage);
+    border-radius: 6px;
+    height: 70px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    margin-bottom: 6px;
+  }
+
+  /* ── FAQ ── */
+  .faq { background: var(--cream); }
+  .faq-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .faq-divider::before,
+  .faq-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--mid-sage);
+  }
+  .faq-divider span {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--charcoal);
+    white-space: nowrap;
+  }
+  .faq-item { border-bottom: 1px solid var(--mid-sage); }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--charcoal);
+    text-align: left;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+  }
+  .faq-arrow {
+    width: 22px; height: 22px;
+    border: 1px solid var(--mid-sage);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    color: var(--sage);
+    flex-shrink: 0;
+    transition: transform 0.25s;
+  }
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .faq-item.open .faq-answer { max-height: 160px; padding-bottom: 18px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--charcoal);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 16px;
+    opacity: 0.85;
+  }
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 20px;
+    margin-bottom: 16px;
+  }
+  .footer-links a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    font-size: 12px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  @media (max-width: 540px) {
+    .bonus-grid { grid-template-columns: 1fr 1fr; }
+    .molhos-grid { grid-template-columns: 1fr; }
+    .salades-grid { grid-template-columns: 1fr; }
+    .testimonial-item { width: 100%; }
+
+    section { padding: 40px 0; }
+    .container { padding: 0 16px; }
+
+    .hero { padding: 48px 16px 40px; }
+    .hero-brand { font-size: 48px; }
+
+    .oferta-card { padding: 24px 16px; }
+    .price-main { font-size: 48px; }
+
+    .garantia-box { padding: 28px 16px; }
+
+    .btn-primary, .btn-gold { font-size: 14px; padding: 16px 20px; }
+
+    .features-list li { font-size: 14px; }
+
+    .faq-question { font-size: 13px; }
+
+    .preview-carousel { margin-top: 24px; }
+    .carousel-item { width: 200px; }
+
+    .testimonials-manual { gap: 8px; }
+    .carousel-btn { width: 36px; height: 36px; font-size: 14px; }
+
+    footer { padding: 32px 16px; }
+  }
+
+  @media (min-width: 541px) and (max-width: 768px) {
+    .salades-grid { grid-template-columns: repeat(2, 1fr); }
+    .bonus-grid { grid-template-columns: repeat(2, 1fr); }
+    .molhos-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (min-width: 769px) {
+    .container { max-width: 760px; }
+    .salades-grid { grid-template-columns: repeat(3, 1fr); }
+    .bonus-grid { grid-template-columns: repeat(2, 1fr); }
+    .oferta-card { max-width: 520px; }
+    .garantia-box { max-width: 560px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-brand">salades</div>
+  <div><span class="hero-brand-sub">en bocal</span> <span class="hero-brand-molhos" style="font-family:'Dancing Script',cursive; font-size:clamp(18px,3vw,26px); position:relative; display:inline-block;">+sauces irrésistibles
+    <svg viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg" style="position:absolute; left:0; bottom:-8px; width:100%; height:10px;">
+      <path d="M2 8 C20 4, 40 10, 60 6 C80 2, 100 8, 118 5" stroke="#C0622D" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+  </span></div>
+  <br>
+  
+  <p style="font-family:'Inter',sans-serif; font-size:clamp(15px,2.2vw,19px); color:var(--charcoal); max-width:520px; margin:0 auto 36px; line-height:1.6;"><span style="font-weight:700;">80 RECETTES PRATIQUES</span> <span style="font-weight:500;">à préparer chez vous pour ne plus jamais manquer de salade fraîche au réfrigérateur, prêtes en 20 minutes, fraîches pendant 7 jours.</span></p>
+  <img src="images/hero.webp" alt="Salades en Bocal" style="width:100%; max-width:480px; display:block; margin:0 auto 36px;">
+  <a href="#oferta" class="btn-primary">JE VEUX MES RECETTES MAINTENANT</a>
+</section>
+
+<!-- O QUE VOCÊ VAI ENCONTRAR -->
+<section class="features">
+  <div class="container">
+    <h2 class="section-title">CE QUE VOUS<br>ALLEZ DÉCOUVRIR :</h2>
+    <ul class="features-list">
+      <li>
+        <span class="check-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </span>
+        Fonctionne avec n'importe quel bocal
+      </li>
+      <li>
+        <span class="check-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 2h18v20H3z"/><path d="M3 6h18"/><path d="M9 2v4"/><path d="M15 2v4"/></svg>
+        </span>
+        80 salades deliciosas
+      </li>
+      <li>
+        <span class="check-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2 C12 2 5 10 5 14 a7 7 0 0 0 14 0 C19 10 12 2 12 2z"/></svg>
+        </span>
+        Sauces irrésistibles
+      </li>
+      <li>
+        <span class="check-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="4" rx="1"/><rect x="2" y="9" width="20" height="4" rx="1"/><rect x="2" y="15" width="20" height="4" rx="1"/></svg>
+        </span>
+        Le secret des couches
+      </li>
+      <li>
+        <span class="check-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </span>
+        Conservation jusqu'à 7 jours
+      </li>
+      <li>
+        <span class="check-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        Prêtes en 20 minutes
+      </li>
+      <li>
+        <span class="check-icon">
+          <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+        </span>
+        Préparation étape par étape
+      </li>
+    </ul>
+    <img src="images/encontrar.webp" alt="Ce que vous allez découvrir" style="width:100%; max-width:420px; aspect-ratio:1/1; object-fit:cover; border-radius:16px; display:block; margin:28px auto 0;">
+    <br>
+    <a href="#oferta" class="btn-primary">JE VEUX MES RECETTES !</a>
+  </div>
+</section>
+
+<!-- ALGUMAS SALADAS -->
+<section class="salades">
+  <div class="container">
+    <h2 class="section-title">QUELQUES SALADES QUE VOUS ALLEZ APPRENDRE :</h2>
+    <div class="salades-grid">
+      <div class="salada-card">
+        <img src="images/salada1.webp" alt="Salade 1" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>SALADE FRAÎCHEUR + SAUCE CITRONNÉE</h3>
+          <div class="salada-meta">Conservation : 7 jours · Calories : 135 kcal</div>
+        </div>
+      </div>
+      <div class="salada-card">
+        <img src="images/salada2.webp" alt="Salade 2" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>SALADE CAPRESE</h3>
+          <div class="salada-meta">Conservation : 7 jours · Calories : 120 kcal</div>
+        </div>
+      </div>
+      <div class="salada-card">
+        <img src="images/salada3.webp" alt="Salade 3" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>SALADE CAESAR + SAUCE ORIGINALE</h3>
+          <div class="salada-meta">Conservation : 7 jours · Calories : 115 kcal</div>
+        </div>
+      </div>
+      <div class="salada-card">
+        <img src="images/salada4.webp" alt="Salade 4" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>SALADE BIG MAC + SAUCE SPÉCIALE</h3>
+          <div class="salada-meta">Conservation : 7 jours · Calories : 185 kcal</div>
+        </div>
+      </div>
+      <div class="salada-card">
+        <img src="images/salada5.webp" alt="Salade 5" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>SALADE MÉDITERRANÉENNE + SAUCE AIGRE-DOUCE</h3>
+          <div class="salada-meta">Conservation : 7 jours · Calories : 125 kcal</div>
+        </div>
+      </div>
+      <div class="salada-card">
+        <img src="images/salada6.webp" alt="Salade 6" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>SALADE TOSCANE + SAUCE SICILIENNE</h3>
+          <div class="salada-meta">Conservation : 7 jours · Calories : 130 kcal</div>
+        </div>
+      </div>
+      <div class="salada-card">
+        <img src="images/salada7.webp" alt="Salade 7" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>SALADE RUSTIQUE + MOUTARDE ET MIEL</h3>
+          <div class="salada-meta">Conservation : 7 jours · Calories : 140 kcal</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px;">
+      <a href="#oferta" class="btn-primary">JE VEUX MES RECETTES MAINTENANT</a>
+    </div>
+  </div>
+</section>
+
+<!-- MOLHOS -->
+<section class="molhos">
+  <div class="container">
+    <h2 class="section-title">FRAÎCHEUR DANS L'ASSIETTE + SAUCES IRRÉSISTIBLES</h2>
+    <div class="molhos-grid">
+      <img src="images/frescor1.webp" alt="Fraîcheur 1" class="molho-img-placeholder" style="object-fit:cover;">
+      <img src="images/frescor2.webp" alt="Fraîcheur 2" class="molho-img-placeholder" style="object-fit:cover;">
+      <img src="images/frescor3.webp" alt="Fraîcheur 3" class="molho-img-placeholder" style="object-fit:cover;">
+    </div>
+    <div style="margin-top:32px;">
+      <a href="#oferta" class="btn-primary">JE VEUX MES RECETTES MAINTENANT</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRÉVIA DA AULA -->
+<section class="preview">
+  <div class="container">
+    <h2 class="section-title">DÉCOUVREZ UN APERÇU :</h2>
+    <div style="max-width:360px; margin:0 auto;">
+      <div class="wistia_responsive_padding" style="padding:177.78% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/9y47qbd3l5?web_component=true&seo=false" title="VIDÉO APERÇU" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe></div></div>
+      <script src="https://fast.wistia.net/player.js" async></script>
+    </div>
+    <div class="preview-carousel">
+      <div class="carousel-track">
+        <img src="images/previa1.webp" alt="Aperçu 1" class="carousel-item" style="object-fit:cover;">
+        <img src="images/previa2.webp" alt="Aperçu 2" class="carousel-item" style="object-fit:cover;">
+        <img src="images/previa3.webp" alt="Aperçu 3" class="carousel-item" style="object-fit:cover;">
+        <img src="images/previa4.webp" alt="Aperçu 4" class="carousel-item" style="object-fit:cover;">
+        <img src="images/previa5.webp" alt="Aperçu 5" class="carousel-item" style="object-fit:cover;">
+        <img src="images/previa1.webp" alt="Aperçu 1" class="carousel-item" style="object-fit:cover;">
+        <img src="images/previa2.webp" alt="Aperçu 2" class="carousel-item" style="object-fit:cover;">
+        <img src="images/previa3.webp" alt="Aperçu 3" class="carousel-item" style="object-fit:cover;">
+        <img src="images/previa4.webp" alt="Aperçu 4" class="carousel-item" style="object-fit:cover;">
+        <img src="images/previa5.webp" alt="Aperçu 5" class="carousel-item" style="object-fit:cover;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BÔNUS -->
+<section class="bonus">
+  <div class="container">
+    <h2 class="section-title">RECEVEZ EN PLUS 4 BONUS EXCLUSIFS :</h2>
+    <div class="bonus-grid">
+      <div class="bonus-card">
+        <img src="images/bonus1.webp" alt="Bonus 1" class="bonus-img-placeholder" style="object-fit:cover;">
+        <div class="bonus-card-body">
+          <h4>BONUS 1</h4>
+          <p class="bonus-name">SMOOTHIES DÉTOX</p>
+          <p class="bonus-desc">20 recettes</p>
+          <div class="bonus-price-from">€9,90</div>
+          <div class="bonus-free">OFFERT AUJOURD'HUI !</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <img src="images/bonus2.webp" alt="Bonus 2" class="bonus-img-placeholder" style="object-fit:cover;">
+        <div class="bonus-card-body">
+          <h4>BONUS 2</h4>
+          <p class="bonus-name">SHOTS MATINAUX IMMUNITÉ</p>
+          <p class="bonus-desc">5 recettes</p>
+          <div class="bonus-price-from">€9,90</div>
+          <div class="bonus-free">OFFERT AUJOURD'HUI !</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <img src="images/bonus3.webp" alt="Bonus 3" class="bonus-img-placeholder" style="object-fit:cover;">
+        <div class="bonus-card-body">
+          <h4>BONUS 3</h4>
+          <p class="bonus-name">EAUX AROMATISÉES</p>
+          <p class="bonus-desc">15 recettes</p>
+          <div class="bonus-price-from">€9,90</div>
+          <div class="bonus-free">OFFERT AUJOURD'HUI !</div>
+        </div>
+      </div>
+      <div class="bonus-card">
+        <img src="images/bonus4.webp" alt="Bonus 4" class="bonus-img-placeholder" style="object-fit:cover;">
+        <div class="bonus-card-body">
+          <h4>BONUS 4</h4>
+          <p class="bonus-name">SALADES AVEC SAUCES SANS GLUTEN ET SANS LACTOSE</p>
+          <p class="bonus-desc">20 recettes</p>
+          <div class="bonus-price-from">€9,90</div>
+          <div class="bonus-free">OFFERT AUJOURD'HUI !</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin: 40px 0 20px;">
+      <a href="#oferta" class="btn-primary">JE VEUX MES RECETTES MAINTENANT</a>
+    </div>
+
+    <h2 class="section-title" style="margin-top:48px;">CELA VOUS ARRIVE ?</h2>
+    <ul class="problemas-list">
+      <li>
+        <span class="x-icon">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
+        Vous n'avez pas le courage de laver et couper la salade chaque jour
+      </li>
+      <li>
+        <span class="x-icon">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
+        Vous jetez la salade à la poubelle avant de l'utiliser
+      </li>
+      <li>
+        <span class="x-icon">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
+        Certains jours, vous sautez complètement la salade
+      </li>
+      <li>
+        <span class="x-icon">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
+        Vous en avez assez de la laitue et des tomates
+      </li>
+    </ul>
+
+    <div style="text-align:center; margin-top:48px;">
+      <p style="font-family:'Inter',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--charcoal);">Alors vous avez besoin de ceci</p>
+      <div style="margin-top:16px; animation: bounce 1.2s infinite;">
+        <svg viewBox="0 0 24 24" style="width:32px; height:32px; stroke:var(--emerald); stroke-width:2.5; fill:none; stroke-linecap:round; stroke-linejoin:round; display:block; margin:0 auto;">
+          <line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/>
+        </svg>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(30,122,74,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(30,122,74,0); }
+  }
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(201,168,76,0.4); }
+    50% { box-shadow: 0 0 0 8px rgba(201,168,76,0); }
+  }
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+</style>
+
+<!-- OFERTA -->
+<section class="oferta" id="oferta">
+  <div class="container">
+    <div class="oferta-card">
+      <div style="margin-bottom:20px;">
+        <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(32px,6vw,48px); color:var(--emerald); line-height:1;">salades</div>
+        <div style="margin-bottom:4px;"><span style="background:var(--emerald); color:var(--white); font-size:clamp(14px,2.5vw,20px); font-weight:700; padding:3px 12px; border-radius:4px;">en bocal</span> <span style="font-family:'Dancing Script',cursive; font-size:clamp(14px,2.5vw,20px); position:relative; display:inline-block;">+sauces irrésistibles
+          <svg viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg" style="position:absolute; left:0; bottom:-6px; width:100%; height:10px;">
+            <path d="M2 8 C20 4, 40 10, 60 6 C80 2, 100 8, 118 5" stroke="#C0622D" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </span></div>
+      </div>
+      <img src="images/offer.webp" alt="Offre" style="width:100%; display:block; margin:0 auto 24px;">
+      <ul class="oferta-items">
+        <li><span class="star">+</span> 80 Recettes de Salades</li>
+        <li><span class="star">+</span> Recettes de Sauces Irrésistibles</li>
+        <li><span class="star">+</span> Bonus : Sauces Secrètes du Chef</li>
+        <li><span class="star">+</span> 20 Recettes de Smoothies Détox</li>
+        <li><span class="star">+</span> 5 Recettes de Shots Matinaux Immunité</li>
+        <li><span class="star">+</span> 15 Recettes d'Eaux Aromatisées</li>
+        <li><span class="star">+</span> 20 Salades avec Sauces Sans Gluten et Sans Lactose</li>
+      </ul>
+      <div class="price-anchor">Valeur : €47,00</div>
+      <div class="price-main">€19.90</div>
+      <div class="price-note">📩 Accès immédiat après l'achat • Paiement unique</div>
+      <a href="https://pay.mycheckoutt.com/019ea88b-f318-73d3-8dba-ea26eff602db?ref=" class="btn-primary">JE VEUX MES RECETTES MAINTENANT</a>
+      <div class="secure">🔒 Paiement 100% sécurisé</div>
+      <div style="font-size:11px; color:#555; margin-top:8px; text-align:center;">Ceci est un produit numérique. Aucun exemplaire physique ne sera envoyé.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA -->
+<section class="garantia">
+  <div class="container">
+    <div class="garantia-box">
+      <img src="images/garantia.webp" alt="Garantie 30 jours" style="width:120px; display:block; margin:0 auto 16px;">
+      <h3>Garantie 30 jours</h3>
+      <p>Si pour une raison quelconque vous n'êtes pas satisfaite, envoyez-nous simplement un e-mail dans les <strong>30 jours</strong> suivant votre achat et nous vous remboursons intégralement. Sans démarche compliquée, sans question posée.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AUTORA -->
+<section class="autora">
+  <div class="container">
+    <h2 class="section-title" style="margin-bottom:8px;">LES SALADES DE LA NUTRITIONNISTE</h2>
+    <p style="font-family:'Dancing Script',cursive; font-size:clamp(28px,5vw,42px); color:var(--emerald); text-align:center; margin-bottom:28px;">Camille Morel</p>
+    <img src="images/nutri.webp" alt="Camille Morel, nutritionniste" style="width:100%; max-width:380px; border-radius:16px; display:block; margin:0 auto 24px; object-fit:cover; box-shadow: 0 4px 24px rgba(45,106,79,0.12); border: 3px solid var(--mid-sage);">
+    <p class="autora-bio">Mes recettes de Salades en Bocal et Sauces Irrésistibles ont toujours eu beaucoup de succès sur internet. J'ai décidé de rassembler les 80 meilleures recettes en un seul endroit pour partager ce savoir-faire avec vous.</p>
+
+    <p style="font-family:'Inter',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--charcoal); text-align:center; margin-bottom:20px;">Voici les messages que je reçois presque chaque jour :</p>
+    <div class="testimonials-manual">
+      <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">&#8592;</button>
+      <div class="testimonials-window">
+        <div class="testimonials-track-manual" id="testimonialsTrack">
+          <!-- clones do final para loop reverso -->
+          <img src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item clone" style="object-fit:cover;">
+          <img src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item clone" style="object-fit:cover;">
+          <!-- slides reais -->
+          <img src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item" style="object-fit:cover;">
+          <img src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item" style="object-fit:cover;">
+          <img src="images/depo3.webp" alt="Témoignage 3" class="testimonial-item" style="object-fit:cover;">
+          <img src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item" style="object-fit:cover;">
+          <img src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item" style="object-fit:cover;">
+          <!-- clones do início para loop frente -->
+          <img src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item clone" style="object-fit:cover;">
+          <img src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item clone" style="object-fit:cover;">
+        </div>
+      </div>
+      <button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+      <span class="dot" onclick="goToSlide(3)"></span>
+      <span class="dot" onclick="goToSlide(4)"></span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="container">
+    <div class="faq-divider"><span>QUESTIONS FRÉQUENTES</span></div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question">Comment vais-je recevoir mes recettes ? <span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Dès confirmation du paiement, vous recevez immédiatement par e-mail le lien pour accéder à tous les guides numériques.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Le guide est-il garanti ? <span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Oui ! Garantie inconditionnelle de 30 jours. Si vous n'êtes pas satisfaite, nous vous remboursons 100% du montant payé, sans question.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Ai-je besoin de bocaux spéciaux ? <span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Non ! La méthode fonctionne avec n'importe quel bocal à couvercle que vous avez déjà chez vous.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Les recettes incluent-elles les sauces ? <span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Oui ! Chaque recette est accompagnée de sa sauce exclusive.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Quanto tempo dura a salada en bocal na geladeira? <span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Grâce à la méthode des couches, la salade se conserve jusqu'à 7 jours au réfrigérateur sans se ramollir.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Puis-je préparer toutes mes salades d'un coup le week-end ? <span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Exactement ! Préparez tout le dimanche et profitez de salades fraîches toute la semaine.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Les recettes sont-elles faciles à réaliser ? <span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Toutes les recettes ont été conçues pour être simples et rapides, quel que soit votre niveau en cuisine.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Les ingrédients sont-ils faciles à trouver ? <span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Oui ! Tous les ingrédients sont disponibles dans les supermarchés habituels.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Ai-je besoin d'une balance ou d'ustensiles spécifiques ? <span class="faq-arrow">▾</span></button>
+        <div class="faq-answer">Non. Les mesures sont indiquées en cuillères et en verres du quotidien.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Salades en Bocal · Camille Morel</div>
+  <div class="footer-links">
+    <a href="conditions.html">Conditions d'utilisation</a>
+    <a href="confidentialite.html">Politique de confidentialité</a>
+    <a href="remboursement.html">Politique de remboursement</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-copy">© 2025 Camille Morel · Tous droits réservés · Produit numérique</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  const totalSlides = 5;
+  const clonesBefore = 2;
+  let currentSlide = clonesBefore; // começa no primeiro slide real
+  let isTransitioning = false;
+
+  function getStep() {
+    return window.innerWidth <= 600 ? 1 : 2;
+  }
+
+  function getItemWidth() {
+    const track = document.getElementById('testimonialsTrack');
+    if (!track) return 0;
+    const item = track.querySelector('.testimonial-item');
+    if (!item) return 0;
+    return item.offsetWidth + 16;
+  }
+
+  function updateCarousel(animated = true) {
+    const track = document.getElementById('testimonialsTrack');
+    if (!track) return;
+    track.style.transition = animated ? 'transform 0.4s ease' : 'none';
+    track.style.transform = `translateX(-${currentSlide * getItemWidth()}px)`;
+    const realIndex = (currentSlide - clonesBefore + totalSlides) % totalSlides;
+    document.querySelectorAll('.dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === realIndex);
+    });
+  }
+
+  function moveCarousel(dir) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    currentSlide += dir;
+    updateCarousel(true);
+
+    setTimeout(() => {
+      // se passou do último real, volta para o primeiro real sem animação
+      if (currentSlide >= clonesBefore + totalSlides) {
+        currentSlide = clonesBefore;
+        updateCarousel(false);
+      }
+      // se voltou antes do primeiro real, vai para o último real sem animação
+      if (currentSlide < clonesBefore) {
+        currentSlide = clonesBefore + totalSlides - getStep();
+        updateCarousel(false);
+      }
+      isTransitioning = false;
+    }, 420);
+  }
+
+  function goToSlide(index) {
+    currentSlide = clonesBefore + index;
+    updateCarousel();
+  }
+
+  // posiciona no início sem animação
+  window.addEventListener('load', () => updateCarousel(false));
+  window.addEventListener('resize', () => updateCarousel(false));
+  setInterval(() => moveCarousel(1), 3000);
+</script>
+</body>
+</html>
