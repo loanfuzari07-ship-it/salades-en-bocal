@@ -542,6 +542,7 @@
   .testimonials-window {
     overflow: hidden;
     flex: 1;
+    min-width: 0;
   }
   .testimonials-track-manual {
     display: flex;
@@ -586,6 +587,8 @@
   @media (max-width: 600px) {
     .testimonial-item { width: 100%; }
     .testimonials-track-manual { gap: 0; }
+    .testimonials-manual { gap: 4px; }
+    .carousel-btn { width: 32px; height: 32px; font-size: 14px; flex-shrink: 0; }
   }
   .proof-item {
     background: var(--light-sage);
@@ -1058,7 +1061,7 @@
 <section class="garantia">
   <div class="container">
     <div class="garantia-box">
-      <img src="images/garantia.webp" alt="Garantie 30 jours" style="width:120px; display:block; margin:0 auto 16px;">
+      <img src="images/garantia.webp" alt="Garantie 30 jours" style="width:170px; display:block; margin:0 auto 16px;">
       <h3>Garantie 30 jours</h3>
       <p>Si pour une raison quelconque vous n'êtes pas satisfaite, envoyez-nous simplement un e-mail dans les <strong>30 jours</strong> suivant votre achat et nous vous remboursons intégralement. Sans démarche compliquée, sans question posée.</p>
     </div>
