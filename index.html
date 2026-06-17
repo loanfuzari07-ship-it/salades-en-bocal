@@ -693,10 +693,12 @@
   }
 
   @media (max-width: 540px) {
-    .bonus-grid { grid-template-columns: 1fr 1fr; }
+    .bonus-grid { grid-template-columns: 1fr; }
     .molhos-grid { grid-template-columns: 1fr; }
-    .salades-grid { grid-template-columns: 1fr; }
+    .saladas-grid { grid-template-columns: 1fr; }
     .testimonial-item { width: 100%; }
+    .salada-img-placeholder { aspect-ratio: 768 / 600; }
+    .molho-img-placeholder { aspect-ratio: 480 / 300; }
 
     section { padding: 40px 0; }
     .container { padding: 0 16px; }
@@ -725,14 +727,14 @@
   }
 
   @media (min-width: 541px) and (max-width: 768px) {
-    .salades-grid { grid-template-columns: repeat(2, 1fr); }
+    .saladas-grid { grid-template-columns: repeat(2, 1fr); }
     .bonus-grid { grid-template-columns: repeat(2, 1fr); }
     .molhos-grid { grid-template-columns: repeat(3, 1fr); }
   }
 
   @media (min-width: 769px) {
     .container { max-width: 760px; }
-    .salades-grid { grid-template-columns: repeat(3, 1fr); }
+    .saladas-grid { grid-template-columns: repeat(3, 1fr); }
     .bonus-grid { grid-template-columns: repeat(2, 1fr); }
     .oferta-card { max-width: 520px; }
     .garantia-box { max-width: 560px; }
