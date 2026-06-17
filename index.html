@@ -228,6 +228,7 @@
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    border: 3px solid var(--mid-sage);
   }
   .salada-img-placeholder {
     background: var(--mid-sage);
@@ -346,6 +347,7 @@
     overflow: hidden;
     box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     text-align: center;
+    border: 3px solid var(--mid-sage);
   }
   .bonus-img-placeholder {
     background: var(--light-sage);
@@ -583,6 +585,7 @@
   .dot.active { background: var(--emerald); }
   @media (max-width: 600px) {
     .testimonial-item { width: 100%; }
+    .testimonials-track-manual { gap: 0; }
   }
   .proof-item {
     background: var(--light-sage);
@@ -695,7 +698,8 @@
   @media (max-width: 540px) {
     .bonus-grid { grid-template-columns: 1fr; }
     .molhos-grid { grid-template-columns: 1fr; }
-    .saladas-grid { grid-template-columns: 1fr; }
+    .saladas-grid { grid-template-columns: 1fr; gap: 20px; }
+    .saladas { padding: 40px 48px; }
     .testimonial-item { width: 100%; }
 
     section { padding: 40px 0; }
@@ -814,7 +818,7 @@
 <section class="salades">
   <div class="container">
     <h2 class="section-title">QUELQUES SALADES QUE VOUS ALLEZ APPRENDRE :</h2>
-    <div class="salades-grid">
+    <div class="saladas-grid">
       <div class="salada-card">
         <img src="images/salada1.webp" alt="Salade 1" class="salada-img-placeholder" style="object-fit:cover;">
         <div class="salada-info">
