@@ -537,7 +537,7 @@
   .testimonials-manual {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
   }
   .testimonials-window {
     overflow: hidden;
@@ -546,16 +546,21 @@
   }
   .testimonials-track-manual {
     display: flex;
-    gap: 16px;
     transition: transform 0.4s ease;
   }
+  .testimonial-slide {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
   .testimonial-item {
-    width: calc(50% - 8px);
+    width: 100%;
     aspect-ratio: 1122 / 1402;
     background: var(--light-sage);
     border-radius: 10px;
     object-fit: cover;
-    flex-shrink: 0;
+    display: block;
   }
   .carousel-btn {
     width: 44px; height: 44px;
@@ -585,9 +590,7 @@
   }
   .dot.active { background: var(--emerald); }
   @media (max-width: 600px) {
-    .testimonial-item { width: 100%; }
-    .testimonials-track-manual { gap: 0; }
-    .testimonials-manual { gap: 4px; }
+    .testimonial-slide { flex: 0 0 100%; max-width: 100%; padding: 0; }
     .carousel-btn { width: 32px; height: 32px; font-size: 14px; flex-shrink: 0; }
   }
   .proof-item {
@@ -703,7 +706,6 @@
     .molhos-grid { grid-template-columns: 1fr; }
     .saladas-grid { grid-template-columns: 1fr; gap: 20px; }
     .saladas { padding: 40px 48px; }
-    .testimonial-item { width: 100%; }
 
     section { padding: 40px 0; }
     .container { padding: 0 16px; }
@@ -724,9 +726,6 @@
 
     .preview-carousel { margin-top: 24px; }
     .carousel-item { width: 200px; }
-
-    .testimonials-manual { gap: 8px; }
-    .carousel-btn { width: 36px; height: 36px; font-size: 14px; }
 
     footer { padding: 32px 16px; }
   }
@@ -1082,17 +1081,17 @@
       <div class="testimonials-window">
         <div class="testimonials-track-manual" id="testimonialsTrack">
           <!-- clones do final para loop reverso -->
-          <img src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item clone" style="object-fit:cover;">
-          <img src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item clone" style="object-fit:cover;">
+          <div class="testimonial-slide"><img src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item"></div>
           <!-- slides reais -->
-          <img src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item" style="object-fit:cover;">
-          <img src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item" style="object-fit:cover;">
-          <img src="images/depo3.webp" alt="Témoignage 3" class="testimonial-item" style="object-fit:cover;">
-          <img src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item" style="object-fit:cover;">
-          <img src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item" style="object-fit:cover;">
+          <div class="testimonial-slide"><img src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img src="images/depo3.webp" alt="Témoignage 3" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item"></div>
           <!-- clones do início para loop frente -->
-          <img src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item clone" style="object-fit:cover;">
-          <img src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item clone" style="object-fit:cover;">
+          <div class="testimonial-slide"><img src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item"></div>
         </div>
       </div>
       <button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#8594;</button>
@@ -1179,23 +1178,20 @@
   let currentSlide = clonesBefore; // começa no primeiro slide real
   let isTransitioning = false;
 
-  function getStep() {
-    return window.innerWidth <= 600 ? 1 : 2;
+  function getSlideWidthPercent() {
+    // cada .testimonial-slide tem flex-basis 50% no desktop, 100% no mobile
+    return window.innerWidth <= 600 ? 100 : 50;
   }
 
-  function getItemWidth() {
-    const track = document.getElementById('testimonialsTrack');
-    if (!track) return 0;
-    const item = track.querySelector('.testimonial-item');
-    if (!item) return 0;
-    return item.offsetWidth + 16;
+  function getStep() {
+    return window.innerWidth <= 600 ? 1 : 2;
   }
 
   function updateCarousel(animated = true) {
     const track = document.getElementById('testimonialsTrack');
     if (!track) return;
     track.style.transition = animated ? 'transform 0.4s ease' : 'none';
-    track.style.transform = `translateX(-${currentSlide * getItemWidth()}px)`;
+    track.style.transform = `translateX(-${currentSlide * getSlideWidthPercent()}%)`;
     const realIndex = (currentSlide - clonesBefore + totalSlides) % totalSlides;
     document.querySelectorAll('.dot').forEach((dot, i) => {
       dot.classList.toggle('active', i === realIndex);
