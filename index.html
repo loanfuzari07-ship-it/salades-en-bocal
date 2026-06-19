@@ -55,12 +55,13 @@
   }
 
   .section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(24px, 4vw, 36px);
-    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(20px, 3.4vw, 30px);
+    font-weight: 800;
+    text-transform: uppercase;
     color: var(--emerald);
     text-align: center;
-    line-height: 1.2;
+    line-height: 1.3;
     margin-bottom: 40px;
   }
 
@@ -118,9 +119,40 @@
   }
   .btn-gold:active { transform: translateY(0); box-shadow: none; }
 
+  .btn-hero {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #E07A3E 0%, #C0622D 60%, #9c4d23 100%);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 18px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    border: none;
+    cursor: pointer;
+    animation: pulse-orange 2.5s ease-in-out infinite;
+  }
+  .btn-hero:hover {
+    background: linear-gradient(135deg, #C0622D 0%, #9c4d23 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(192,98,45,0.4);
+    animation: none;
+  }
+  .btn-hero:active { transform: translateY(0); box-shadow: none; }
+  @keyframes pulse-orange {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(192,98,45,0.45); }
+    50% { box-shadow: 0 0 0 8px rgba(192,98,45,0); }
+  }
+
   /* ── HERO ── */
   .hero {
-    background: var(--light-sage);
+    background: var(--emerald);
     text-align: center;
     padding: 64px 24px 56px;
   }
@@ -251,11 +283,13 @@
     color: var(--charcoal);
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
   }
   .salada-meta {
-    font-size: 11px;
-    color: #888;
+    font-size: 12px;
+    color: #555;
+    border-top: 1px solid var(--light-sage);
+    padding-top: 8px;
   }
 
   /* ── MOLHOS ── */
@@ -276,6 +310,7 @@
 
   /* ── PREVIEW ── */
   .preview { background: var(--light-sage); text-align: center; }
+  .depoimentos { background: var(--cream); }
   .preview-label {
     font-size: 14px;
     font-weight: 700;
@@ -462,7 +497,7 @@
   .star { color: var(--emerald); font-weight: 700; flex-shrink: 0; }
   .price-anchor {
     font-size: 14px;
-    color: #aaa;
+    color: #C0392B;
     text-decoration: line-through;
     margin-bottom: 4px;
   }
@@ -767,19 +802,17 @@
 </head>
 <body>
 
+<div id="countdownBar" style="position:sticky; top:0; z-index:1000; background:var(--terracotta); color:white; text-align:center; padding:10px 16px; font-family:'Inter',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.02em; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
+  <span>⏰ CETTE OFFRE SE TERMINE DANS</span>
+  <span id="countdownTimer" style="font-family:'Inter',sans-serif; font-weight:800; font-size:14px; background:rgba(255,255,255,0.18); padding:3px 10px; border-radius:5px; min-width:60px; display:inline-block;">15:00</span>
+</div>
+
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-brand">salades</div>
-  <div><span class="hero-brand-sub">en bocal</span> <span class="hero-brand-molhos" style="font-family:'Dancing Script',cursive; font-size:clamp(18px,3vw,26px); position:relative; display:inline-block;">+sauces irrésistibles
-    <svg viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg" style="position:absolute; left:0; bottom:-8px; width:100%; height:10px;">
-      <path d="M2 8 C20 4, 40 10, 60 6 C80 2, 100 8, 118 5" stroke="#C0622D" stroke-width="2" fill="none" stroke-linecap="round"/>
-    </svg>
-  </span></div>
-  <br>
-  
-  <p style="font-family:'Inter',sans-serif; font-size:clamp(15px,2.2vw,19px); color:var(--charcoal); max-width:520px; margin:0 auto 36px; line-height:1.6;"><span style="font-weight:700;">80 RECETTES PRATIQUES</span> <span style="font-weight:500;">à préparer chez vous pour ne plus jamais manquer de salade fraîche au réfrigérateur, prêtes en 20 minutes, fraîches pendant 7 jours.</span></p>
+  <h1 style="font-family:'Inter',sans-serif; font-size:clamp(22px,4vw,34px); font-weight:800; text-transform:uppercase; color:#FFB347; line-height:1.3; max-width:680px; margin:0 auto 20px;">NE MANQUEZ PLUS JAMAIS DE SALADE FRAÎCHE AU RÉFRIGÉRATEUR</h1>
+  <p style="font-family:'Inter',sans-serif; font-size:clamp(14px,2vw,17px); color:var(--white); max-width:520px; margin:0 auto 36px; line-height:1.6;"><span style="font-weight:700;">80 RECETTES FACILES</span> <span style="font-weight:500;">de salades en bocal, et la méthode des couches pour tout préparer en 30 minutes et garder vos salades fraîches pendant 7 jours, sans qu'elles se ramollissent.</span></p>
   <img src="images/hero.webp" alt="Salades en Bocal" fetchpriority="high" style="width:100%; max-width:480px; display:block; margin:0 auto 36px;">
-  <a href="#oferta" class="btn-primary">JE VEUX MES RECETTES MAINTENANT</a>
+  <a href="#oferta" class="btn-hero">JE VEUX MES RECETTES MAINTENANT</a>
 </section>
 
 <!-- O QUE VOCÊ VAI ENCONTRAR -->
@@ -915,24 +948,44 @@
 <!-- PRÉVIA DA AULA -->
 <section class="preview">
   <div class="container">
-    <h2 class="section-title">DÉCOUVREZ UN APERÇU :</h2>
+    <h2 class="section-title">FRAÎCHE JUSQU'À 7 JOURS GRÂCE À LA MÉTHODE DES COUCHES</h2>
     <div style="max-width:252px; margin:0 auto;">
       <div class="wistia_responsive_padding" style="padding:177.78% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><iframe src="https://fast.wistia.net/embed/iframe/9y47qbd3l5?web_component=true&seo=false" title="VIDÉO APERÇU" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" width="100%" height="100%"></iframe></div></div>
       <script src="https://fast.wistia.net/player.js" async></script>
     </div>
-    <div class="preview-carousel">
-      <div class="carousel-track">
-        <img loading="lazy" decoding="async" src="images/previa1.webp" alt="Aperçu 1" class="carousel-item" style="object-fit:cover;">
-        <img loading="lazy" decoding="async" src="images/previa2.webp" alt="Aperçu 2" class="carousel-item" style="object-fit:cover;">
-        <img loading="lazy" decoding="async" src="images/previa3.webp" alt="Aperçu 3" class="carousel-item" style="object-fit:cover;">
-        <img loading="lazy" decoding="async" src="images/previa4.webp" alt="Aperçu 4" class="carousel-item" style="object-fit:cover;">
-        <img loading="lazy" decoding="async" src="images/previa5.webp" alt="Aperçu 5" class="carousel-item" style="object-fit:cover;">
-        <img loading="lazy" decoding="async" src="images/previa1.webp" alt="Aperçu 1" class="carousel-item" style="object-fit:cover;">
-        <img loading="lazy" decoding="async" src="images/previa2.webp" alt="Aperçu 2" class="carousel-item" style="object-fit:cover;">
-        <img loading="lazy" decoding="async" src="images/previa3.webp" alt="Aperçu 3" class="carousel-item" style="object-fit:cover;">
-        <img loading="lazy" decoding="async" src="images/previa4.webp" alt="Aperçu 4" class="carousel-item" style="object-fit:cover;">
-        <img loading="lazy" decoding="async" src="images/previa5.webp" alt="Aperçu 5" class="carousel-item" style="object-fit:cover;">
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="depoimentos">
+  <div class="container">
+    <h2 class="section-title">VOYEZ CE QU'ELLES EN DISENT :</h2>
+    <div class="testimonials-manual">
+      <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">&#8592;</button>
+      <div class="testimonials-window">
+        <div class="testimonials-track-manual" id="testimonialsTrack">
+          <!-- clones do final para loop reverso -->
+          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item"></div>
+          <!-- slides reais -->
+          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo3.webp" alt="Témoignage 3" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item"></div>
+          <!-- clones do início para loop frente -->
+          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item"></div>
+          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item"></div>
+        </div>
       </div>
+      <button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+      <span class="dot" onclick="goToSlide(3)"></span>
+      <span class="dot" onclick="goToSlide(4)"></span>
     </div>
   </div>
 </section>
@@ -1066,23 +1119,33 @@
         <li><span class="star">+</span> 15 Recettes d'Eaux Aromatisées</li>
         <li><span class="star">+</span> 20 Salades avec Sauces Sans Gluten et Sans Lactose</li>
       </ul>
-      <div class="price-anchor">Valeur : €47,00</div>
-      <div class="price-main">€19,90</div>
-      <div class="price-note">📩 Accès immédiat après l'achat • Paiement unique</div>
+      <div class="price-anchor">Valeur : €57,00</div>
+      <div class="price-main">€14,90</div>
       <a href="https://pay.mycheckoutt.com/019ea88b-f318-73d3-8dba-ea26eff602db?ref=" class="btn-primary">JE VEUX MES RECETTES MAINTENANT</a>
-      <div class="secure">🔒 Paiement 100% sécurisé</div>
-      <div style="font-size:11px; color:#555; margin-top:8px; text-align:center;">Ceci est un produit numérique. Aucun exemplaire physique ne sera envoyé.</div>
-    </div>
-  </div>
-</section>
+      <div style="font-size:13px; font-weight:700; color:#C0392B; text-align:center; margin-top:14px; text-transform:uppercase; letter-spacing:0.04em;">*OFFRE VALABLE JUSQU'À AUJOURD'HUI*</div>
 
-<!-- GARANTIA -->
-<section class="garantia">
-  <div class="container">
-    <div class="garantia-box">
-      <img loading="lazy" decoding="async" src="images/garantia.webp" alt="Garantie 30 jours" style="width:170px; display:block; margin:0 auto 16px;">
-      <h3>Garantie 30 jours</h3>
-      <p>Si pour une raison quelconque vous n'êtes pas satisfaite, envoyez-nous simplement un e-mail dans les <strong>30 jours</strong> suivant votre achat et nous vous remboursons intégralement. Sans démarche compliquée, sans question posée.</p>
+      <div style="background:var(--light-sage); border-radius:12px; padding:18px 16px; margin-top:20px;">
+        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:14px;">
+          <div style="background:var(--charcoal); color:white; border-radius:8px; padding:8px 14px; text-align:center; min-width:54px;">
+            <div id="offerMinutes" style="font-family:'Inter',sans-serif; font-weight:800; font-size:20px; line-height:1;">15</div>
+            <div style="font-size:9px; letter-spacing:0.05em; opacity:0.7; margin-top:2px;">MIN</div>
+          </div>
+          <div style="display:flex; align-items:center; font-weight:800; color:var(--charcoal); font-size:18px;">:</div>
+          <div style="background:var(--charcoal); color:white; border-radius:8px; padding:8px 14px; text-align:center; min-width:54px;">
+            <div id="offerSeconds" style="font-family:'Inter',sans-serif; font-weight:800; font-size:20px; line-height:1;">00</div>
+            <div style="font-size:9px; letter-spacing:0.05em; opacity:0.7; margin-top:2px;">SEC</div>
+          </div>
+        </div>
+
+        <div style="font-size:13px; color:#555; text-align:center;">
+          <span style="color:var(--terracotta);">●</span> <strong id="viewersCount">47 personnes</strong> regardent cette page maintenant • Plus que <strong>8 places</strong> à ce prix
+        </div>
+      </div>
+
+      <div style="color:var(--charcoal); font-size:13px; margin-top:16px; text-align:center;">🔒 Paiement 100% sécurisé</div>
+      <div style="color:var(--charcoal); font-size:13px; margin-top:6px; text-align:center;">📩 Accès immédiat après l'achat</div>
+      <div style="color:var(--charcoal); font-size:13px; margin-top:6px; text-align:center;">🛡️ Garantie satisfait ou remboursé sous 30 jours</div>
+
     </div>
   </div>
 </section>
@@ -1094,35 +1157,6 @@
     <p style="font-family:'Dancing Script',cursive; font-size:clamp(28px,5vw,42px); color:var(--emerald); text-align:center; margin-bottom:28px;">Camille Morel</p>
     <img loading="lazy" decoding="async" src="images/nutri.webp" alt="Camille Morel, nutritionniste" style="width:100%; max-width:380px; aspect-ratio:4/5; border-radius:16px; display:block; margin:0 auto 24px; object-fit:cover; box-shadow: 0 4px 24px rgba(45,106,79,0.12); border: 3px solid var(--mid-sage);">
     <p class="autora-bio">Mes recettes de Salades en Bocal et Sauces Irrésistibles ont toujours eu beaucoup de succès sur internet. J'ai décidé de rassembler les 80 meilleures recettes en un seul endroit pour partager ce savoir-faire avec vous.</p>
-
-    <p style="font-family:'Inter',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--charcoal); text-align:center; margin-bottom:20px;">Voici les messages que je reçois presque chaque jour :</p>
-    <div class="testimonials-manual">
-      <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">&#8592;</button>
-      <div class="testimonials-window">
-        <div class="testimonials-track-manual" id="testimonialsTrack">
-          <!-- clones do final para loop reverso -->
-          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item"></div>
-          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item"></div>
-          <!-- slides reais -->
-          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item"></div>
-          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item"></div>
-          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo3.webp" alt="Témoignage 3" class="testimonial-item"></div>
-          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo4.webp" alt="Témoignage 4" class="testimonial-item"></div>
-          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo5.webp" alt="Témoignage 5" class="testimonial-item"></div>
-          <!-- clones do início para loop frente -->
-          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo1.webp" alt="Témoignage 1" class="testimonial-item"></div>
-          <div class="testimonial-slide"><img loading="lazy" decoding="async" src="images/depo2.webp" alt="Témoignage 2" class="testimonial-item"></div>
-        </div>
-      </div>
-      <button class="carousel-btn next-btn" onclick="moveCarousel(1)">&#8594;</button>
-    </div>
-    <div class="carousel-dots" id="carouselDots">
-      <span class="dot active" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
-      <span class="dot" onclick="goToSlide(3)"></span>
-      <span class="dot" onclick="goToSlide(4)"></span>
-    </div>
   </div>
 </section>
 
@@ -1184,6 +1218,57 @@
 </footer>
 
 <script>
+  // Countdown timer - 15 minutos, reinicia ao expirar (urgência persistente)
+  (function() {
+    const STORAGE_KEY = 'countdownEndTime';
+    let endTime = sessionStorage.getItem(STORAGE_KEY);
+    if (!endTime || parseInt(endTime) < Date.now()) {
+      endTime = Date.now() + 15 * 60 * 1000;
+      sessionStorage.setItem(STORAGE_KEY, endTime);
+    } else {
+      endTime = parseInt(endTime);
+    }
+
+    function updateCountdown() {
+      let total = endTime - Date.now();
+      if (total <= 0) {
+        endTime = Date.now() + 15 * 60 * 1000;
+        sessionStorage.setItem(STORAGE_KEY, endTime);
+        total = endTime - Date.now();
+      }
+      const minutes = Math.floor(total / 60000);
+      const seconds = Math.floor((total % 60000) / 1000);
+      const formatted = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
+
+      // Cabeçalho fixo
+      const headerEl = document.getElementById('countdownTimer');
+      if (headerEl) headerEl.textContent = formatted;
+
+      // Bloco de oferta (mesmos valores, mesmo tempo)
+      const mEl = document.getElementById('offerMinutes');
+      const sEl = document.getElementById('offerSeconds');
+      if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
+      if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  })();
+
+  // Contador de visualizações com leve flutuação
+  (function() {
+    const el = document.getElementById('viewersCount');
+    if (!el) return;
+    function fluctuate() {
+      const base = 47;
+      const variation = Math.floor(Math.random() * 7) - 3; // -3 a +3
+      const count = Math.max(32, base + variation);
+      el.textContent = `${count} personnes`;
+    }
+    fluctuate();
+    setInterval(fluctuate, 8000);
+  })();
+
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', () => {
       const item = btn.parentElement;
