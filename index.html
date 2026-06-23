@@ -212,6 +212,7 @@
 
   /* ── O QUE VOCÊ VAI ENCONTRAR ── */
   .features { background: var(--white); }
+  .problemas { background: var(--cream); }
   .features-list {
     list-style: none;
     max-width: 500px;
@@ -293,7 +294,43 @@
   }
 
   /* ── MOLHOS ── */
-  .molhos { background: var(--white); }
+  /* ── SITUATIONS ── */
+  .situations { background: var(--white); }
+  .situations-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .situation-card {
+    background: var(--white);
+    border: 1px solid var(--mid-sage);
+    border-radius: 14px;
+    padding: 28px 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .situation-icon {
+    width: 56px; height: 56px;
+    background: var(--light-sage);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    margin: 0 auto 16px;
+  }
+  .situation-card h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--emerald);
+    margin-bottom: 10px;
+  }
+  .situation-card p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  .molhos { background: var(--cream); }
   .molhos-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -449,7 +486,7 @@
   /* ── OFERTA ── */
   .oferta {
     background: var(--emerald);
-    padding: 90px 24px 60px;
+    padding: 60px 24px;
     text-align: center;
   }
   .oferta-card {
@@ -496,9 +533,25 @@
   }
   .oferta-items li:last-child { border-bottom: none; }
   .star { color: var(--emerald); font-weight: 700; flex-shrink: 0; }
+  .oferta-check {
+    width: 20px; height: 20px;
+    background: var(--emerald);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .oferta-check svg {
+    width: 11px; height: 11px;
+    stroke: white;
+    stroke-width: 3;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
   .price-anchor {
     font-size: 14px;
-    color: #C0392B;
+    color: #999;
     text-decoration: line-through;
     margin-bottom: 4px;
   }
@@ -548,6 +601,38 @@
 
   /* ── AUTORA ── */
   .autora { background: var(--white); }
+
+  /* ── AVIS RAPIDES ── */
+  .avis-rapides { background: var(--cream); }
+  .avis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .avis-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px 20px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .avis-stars {
+    color: var(--terracotta);
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .avis-text {
+    font-size: 14px;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 14px;
+    font-style: italic;
+  }
+  .avis-author {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--emerald);
+  }
   .autora-name-header {
     text-align: center;
     font-size: 13px;
@@ -744,6 +829,8 @@
   @media (max-width: 540px) {
     .bonus-grid { grid-template-columns: 1fr; }
     .molhos-grid { grid-template-columns: 1fr; }
+    .avis-grid { grid-template-columns: 1fr; }
+    .situations-grid { grid-template-columns: 1fr; }
     .saladas-grid { grid-template-columns: 1fr; gap: 20px; }
     .saladas { padding: 40px 48px; }
 
@@ -756,7 +843,7 @@
     .hero-sub { margin: 0 auto 16px !important; }
     .hero-img { margin: 0 auto 16px !important; }
 
-    .oferta { padding: 70px 8px 40px; }
+    .oferta { padding: 40px 8px; }
     .price-main { font-size: 48px; }
 
     .garantia-box { padding: 28px 16px; }
@@ -777,11 +864,14 @@
     .saladas-grid { grid-template-columns: repeat(2, 1fr); }
     .bonus-grid { grid-template-columns: repeat(2, 1fr); }
     .molhos-grid { grid-template-columns: repeat(3, 1fr); }
+    .situations-grid { grid-template-columns: repeat(2, 1fr); }
+    .avis-grid { grid-template-columns: repeat(1, 1fr); }
   }
 
   @media (min-width: 769px) {
     .container { max-width: 760px; }
     .saladas-grid { grid-template-columns: repeat(3, 1fr); }
+    .features-grid-custom { grid-template-columns: repeat(2, 1fr) !important; }
     .bonus-grid { grid-template-columns: repeat(2, 1fr); }
     .oferta-card { max-width: 520px; }
     .garantia-box { max-width: 560px; }
@@ -806,71 +896,120 @@
 </head>
 <body>
 
-<div id="countdownBar" style="position:sticky; top:0; z-index:1000; background:var(--terracotta); color:white; text-align:center; padding:10px 16px; font-family:'Inter',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.02em; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;">
-  <span>⏰ CETTE CONDITION SPÉCIALE SE TERMINE DANS :</span>
-  <span id="countdownTimer" style="font-family:'Inter',sans-serif; font-weight:800; font-size:14px; background:rgba(255,255,255,0.18); padding:3px 10px; border-radius:5px; min-width:60px; display:inline-block;">15:00</span>
-</div>
+<header id="mainHeader" style="background:var(--cream); padding:16px 24px; text-align:center; border-bottom:1px solid var(--mid-sage); position:sticky; top:0; z-index:999; transition:transform 0.3s ease;">
+  <img src="images/logo.webp" alt="Camille Morel" style="height:48px; width:auto; display:inline-block;">
+</header>
 
 <!-- HERO -->
 <section class="hero">
-  <h1 class="hero-brand-block" style="font-family:'Inter',sans-serif; font-size:clamp(24px,4.5vw,38px); font-weight:800; text-transform:uppercase; color:var(--emerald); line-height:1.3; max-width:680px; margin:0 auto 24px;">DES SALADES PRÊTES POUR TOUTE LA SEMAINE, FRAÎCHES ET CROQUANTES, JUSQU'À <span style="color:var(--terracotta);">7 JOURS</span> SANS RAMOLLIR</h1>
+  <h1 class="hero-brand-block" style="font-family:'Inter',sans-serif; font-weight:800; line-height:1.15; max-width:600px; margin:0 auto 24px; text-align:center;">
+    <span style="display:block; font-size:clamp(36px,7.5vw,58px); letter-spacing:-0.02em; color:var(--emerald); text-transform:uppercase;">80 RECETTES</span>
+    <span style="display:block; font-size:clamp(28px,5.6vw,42px); letter-spacing:-0.01em; color:var(--charcoal); text-transform:uppercase;">DE SALADES EN BOCAL</span>
+    <span style="display:block; font-size:clamp(28px,5.6vw,42px); letter-spacing:-0.01em; color:var(--emerald); text-transform:uppercase;">POUR MINCIR</span>
+    <span style="display:block; font-family:'Dancing Script',cursive; font-weight:600; font-size:clamp(22px,4.2vw,32px); color:var(--terracotta); margin-top:8px;">sans avoir faim !</span>
+  </h1>
 
+  <p class="hero-sub" style="font-family:'Inter',sans-serif; font-size:clamp(15px,2.2vw,19px); color:var(--charcoal); max-width:560px; margin:0 auto 36px; line-height:1.7;"><span style="font-weight:700;">Des combinaisons délicieuses</span> <span style="font-weight:400;">avec des sauces irrésistibles pour économiser, mieux manger et perdre quelques kilos, <span style="font-weight:700; color:var(--terracotta);">sans régime strict et sans privation.</span></p>
   <img class="hero-img" src="images/hero.webp" alt="Salades en Bocal" fetchpriority="high" style="width:100%; max-width:480px; display:block; margin:0 auto 36px;">
-  <p class="hero-sub" style="font-family:'Inter',sans-serif; font-size:clamp(15px,2.2vw,19px); color:var(--charcoal); max-width:560px; margin:0 auto 36px; line-height:1.7;"><span style="font-weight:700;">80 combinaisons délicieuses</span> <span style="font-weight:400;">de salades en bocal avec des sauces irrésistibles pour économiser, mieux manger et perdre quelques kilos sans avoir faim.</span></p>
   <a href="#oferta" class="btn-primary">JE VEUX MON ACCÈS MAINTENANT</a>
+
+  <div style="display:flex; justify-content:center; gap:32px; margin-top:32px; flex-wrap:wrap; max-width:480px; margin-left:auto; margin-right:auto;">
+    <div style="display:flex; flex-direction:column; align-items:center; gap:8px; flex:1; min-width:90px;">
+      <div style="width:44px; height:44px; border-radius:50%; border:1.5px solid var(--emerald); display:flex; align-items:center; justify-content:center; color:var(--emerald); font-size:18px;">⏱</div>
+      <span style="font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:var(--charcoal); text-align:center; line-height:1.3;">Prêt en<br>30 min max</span>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:8px; flex:1; min-width:90px;">
+      <div style="width:44px; height:44px; border-radius:50%; border:1.5px solid var(--emerald); display:flex; align-items:center; justify-content:center; color:var(--emerald); font-size:18px;">🌿</div>
+      <span style="font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:var(--charcoal); text-align:center; line-height:1.3;">Ingrédients<br>accessibles</span>
+    </div>
+    <div style="display:flex; flex-direction:column; align-items:center; gap:8px; flex:1; min-width:90px;">
+      <div style="width:44px; height:44px; border-radius:50%; border:1.5px solid var(--emerald); display:flex; align-items:center; justify-content:center; color:var(--emerald); font-size:18px;">♥</div>
+      <span style="font-family:'Inter',sans-serif; font-size:12px; font-weight:600; color:var(--charcoal); text-align:center; line-height:1.3;">Équilibré<br>et savoureux</span>
+    </div>
+  </div>
+</section>
+
+<!-- CELA VOUS ARRIVE -->
+<section class="problemas">
+  <div class="container">
+    <h2 class="section-title">CELA VOUS ARRIVE ?</h2>
+    <ul class="problemas-list">
+      <li>
+        <span class="x-icon">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
+        Tu veux manger mieux, mais tu ne sais jamais quoi préparer
+      </li>
+      <li>
+        <span class="x-icon">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
+        Tes salades ramollissent en quelques jours
+      </li>
+      <li>
+        <span class="x-icon">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
+        Tu manques de temps en semaine
+      </li>
+      <li>
+        <span class="x-icon">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
+        Tu finis par commander par facilité
+      </li>
+      <li>
+        <span class="x-icon">
+          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </span>
+        Chaque lundi, tu essaies de recommencer, mais tu n'arrives pas à garder ta routine
+      </li>
+    </ul>
+
+    <div style="text-align:center; margin-top:48px;">
+      <p style="font-family:'Inter',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--charcoal);">Alors vous avez besoin de ceci</p>
+      <div style="margin-top:16px; animation: bounce 1.2s infinite;">
+        <svg viewBox="0 0 24 24" style="width:32px; height:32px; stroke:var(--emerald); stroke-width:2.5; fill:none; stroke-linecap:round; stroke-linejoin:round; display:block; margin:0 auto;">
+          <line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/>
+        </svg>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- O QUE VOCÊ VAI ENCONTRAR -->
 <section class="features">
   <div class="container">
-    <h2 class="section-title">CE QUE VOUS<br>ALLEZ DÉCOUVRIR :</h2>
-    <ul class="features-list">
-      <li>
-        <span class="check-icon">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        </span>
-        Fonctionne avec n'importe quel bocal
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg viewBox="0 0 24 24"><path d="M3 2h18v20H3z"/><path d="M3 6h18"/><path d="M9 2v4"/><path d="M15 2v4"/></svg>
-        </span>
-        80 salades deliciosas
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 2 C12 2 5 10 5 14 a7 7 0 0 0 14 0 C19 10 12 2 12 2z"/></svg>
-        </span>
-        Sauces irrésistibles
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="4" rx="1"/><rect x="2" y="9" width="20" height="4" rx="1"/><rect x="2" y="15" width="20" height="4" rx="1"/></svg>
-        </span>
-        Le secret des couches
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        </span>
-        Conservation jusqu'à 7 jours
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </span>
-        Prêtes en 20 minutes
-      </li>
-      <li>
-        <span class="check-icon">
-          <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-        </span>
-        Préparation étape par étape
-      </li>
-    </ul>
-    <img loading="lazy" decoding="async" src="images/encontrar.webp" alt="Ce que vous allez découvrir" style="width:100%; max-width:420px; aspect-ratio:1/1; object-fit:cover; border-radius:16px; display:block; margin:28px auto 0;">
-    <br>
-    <a href="#oferta" class="btn-primary">JE VEUX MES RECETTES !</a>
+    <h2 class="section-title">CE QUE TU VAS DÉCOUVRIR :</h2>
+    <div class="saladas-grid features-grid-custom">
+      <div class="salada-card">
+        <img loading="lazy" decoding="async" src="images/dentro1.webp" alt="80 fiches recettes détaillées" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>80 FICHES RECETTES DÉTAILLÉES AVEC VALEURS NUTRITIONNELLES</h3>
+        </div>
+      </div>
+      <div class="salada-card">
+        <img loading="lazy" decoding="async" src="images/dentro2.webp" alt="Conseils pratiques" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>DES CONSEILS PRATIQUES ET FACILES À APPLIQUER</h3>
+        </div>
+      </div>
+      <div class="salada-card">
+        <img loading="lazy" decoding="async" src="images/dentro3.webp" alt="Méthode des couches" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>LA MÉTHODE DES COUCHES, JUSQU'À 7 JOURS SANS RAMOLLIR</h3>
+        </div>
+      </div>
+      <div class="salada-card">
+        <img loading="lazy" decoding="async" src="images/dentro4.webp" alt="Listes de courses et planner" class="salada-img-placeholder" style="object-fit:cover;">
+        <div class="salada-info">
+          <h3>DES LISTES DE COURSES ET UN PLANNER HEBDOMADAIRE POUR TE SIMPLIFIER LA VIE</h3>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:32px; text-align:center;">
+      <a href="#oferta" class="btn-primary">JE VEUX MES RECETTES !</a>
+    </div>
   </div>
 </section>
 
@@ -931,6 +1070,35 @@
     </div>
     <div style="margin-top:32px;">
       <a href="#oferta" class="btn-primary">JE VEUX MON ACCÈS MAINTENANT</a>
+    </div>
+  </div>
+</section>
+
+<!-- SITUATIONS -->
+<section class="situations">
+  <div class="container">
+    <h2 class="section-title">QUELLE QUE SOIT TA SITUATION,<br>CES RECETTES T'ACCOMPAGNENT</h2>
+    <div class="situations-grid">
+      <div class="situation-card">
+        <div class="situation-icon">🖤</div>
+        <h3>Ménopause</h3>
+        <p>Recettes pensées pour rééquilibrer les hormones naturellement et limiter les prises de poids.</p>
+      </div>
+      <div class="situation-card">
+        <div class="situation-icon">🛡️</div>
+        <h3>Cholestérol</h3>
+        <p>Des recettes riches en fibres et bons lipides pour accompagner ta santé cardiovasculaire.</p>
+      </div>
+      <div class="situation-card">
+        <div class="situation-icon">📉</div>
+        <h3>Diabète type 2</h3>
+        <p>Des plats à index glycémique maîtrisé, sans sucre raffiné, pour stabiliser ta glycémie.</p>
+      </div>
+      <div class="situation-card">
+        <div class="situation-icon">👨‍👩‍👧</div>
+        <h3>Toute la famille</h3>
+        <p>Pas de repas séparés ! Les recettes plaisent aux petits et aux grands.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1042,47 +1210,6 @@
       </div>
     </div>
 
-    <div style="text-align:center; margin: 40px 0 20px;">
-      <a href="#oferta" class="btn-primary">JE VEUX MON ACCÈS MAINTENANT</a>
-    </div>
-
-    <h2 class="section-title" style="margin-top:48px;">CELA VOUS ARRIVE ?</h2>
-    <ul class="problemas-list">
-      <li>
-        <span class="x-icon">
-          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </span>
-        Vous n'avez pas le courage de laver et couper la salade chaque jour
-      </li>
-      <li>
-        <span class="x-icon">
-          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </span>
-        Vous jetez la salade à la poubelle avant de l'utiliser
-      </li>
-      <li>
-        <span class="x-icon">
-          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </span>
-        Certains jours, vous sautez complètement la salade
-      </li>
-      <li>
-        <span class="x-icon">
-          <svg viewBox="0 0 24 24" style="width:14px;height:14px;stroke:white;stroke-width:2.5;fill:none;stroke-linecap:round;"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </span>
-        Vous en avez assez de la laitue et des tomates
-      </li>
-    </ul>
-
-    <div style="text-align:center; margin-top:48px;">
-      <p style="font-family:'Inter',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--charcoal);">Alors vous avez besoin de ceci</p>
-      <div style="margin-top:16px; animation: bounce 1.2s infinite;">
-        <svg viewBox="0 0 24 24" style="width:32px; height:32px; stroke:var(--emerald); stroke-width:2.5; fill:none; stroke-linecap:round; stroke-linejoin:round; display:block; margin:0 auto;">
-          <line x1="12" y1="4" x2="12" y2="20"/><polyline points="6 14 12 20 18 14"/>
-        </svg>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -1105,61 +1232,52 @@
 <!-- OFERTA -->
 <section class="oferta" id="oferta">
   <div class="container">
-    <div style="text-align:center; margin-bottom:24px; position:relative; z-index:2;">
-      <span style="display:inline-block; background:var(--terracotta); color:white; font-family:'Inter',sans-serif; font-weight:800; font-size:13px; letter-spacing:0.04em; padding:8px 20px; border-radius:20px; box-shadow:0 4px 12px rgba(192,98,45,0.35); margin-top:-54px;">-65% OFF AUJOURD'HUI</span>
-    </div>
     <div class="oferta-card">
-      <div style="margin-bottom:20px; margin-top:8px;">
-        <div style="font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(32px,6vw,48px); color:var(--emerald); line-height:1;">salades</div>
-        <div style="margin-bottom:4px;"><span style="background:var(--emerald); color:var(--white); font-size:clamp(14px,2.5vw,20px); font-weight:700; padding:3px 12px; border-radius:4px;">en bocal</span> <span style="font-family:'Dancing Script',cursive; font-size:clamp(14px,2.5vw,20px); position:relative; display:inline-block;">+sauces irrésistibles
-          <svg viewBox="0 0 120 12" xmlns="http://www.w3.org/2000/svg" style="position:absolute; left:0; bottom:-6px; width:100%; height:10px;">
-            <path d="M2 8 C20 4, 40 10, 60 6 C80 2, 100 8, 118 5" stroke="#C0622D" stroke-width="2" fill="none" stroke-linecap="round"/>
-          </svg>
-        </span></div>
-      </div>
+      <h2 style="font-family:'Inter',sans-serif; font-size:clamp(20px,3.4vw,28px); font-weight:800; color:var(--emerald); text-align:center; margin-bottom:20px; line-height:1.3;">Accède à tout dès aujourd'hui</h2>
       <img loading="lazy" decoding="async" src="images/offer.webp" alt="Offre" style="width:100%; aspect-ratio:1/1; object-fit:contain; display:block; margin:0 auto 16px;">
       <div style="text-align:center; margin-bottom:20px;">
         <span style="display:inline-block; background:var(--emerald); color:white; font-family:'Inter',sans-serif; font-weight:800; font-size:12px; letter-spacing:0.06em; padding:6px 16px; border-radius:20px;">APPLICATION EXCLUSIVE</span>
       </div>
       <ul class="oferta-items">
-        <li><span class="star">+</span> 80 Délicieuses Combinaisons de Salades en Bocal</li>
-        <li><span class="star">+</span> Recettes de Sauces Irrésistibles</li>
-        <li><span class="star">+</span> Préparation Complète Étape par Étape</li>
-        <li><span class="star">+</span> Méthode des Couches pour Éviter que les Salades Ramollissent</li>
-        <li><span class="star">+</span> Bonus : Sauces Secrètes du Chef</li>
-        <li><span class="star">+</span> Recettes de Smoothies Détox</li>
-        <li><span class="star">+</span> Recettes de Shots Matinaux Immunité</li>
-        <li><span class="star">+</span> Recettes d'Eaux Aromatisées</li>
-        <li><span class="star">+</span> Salades avec Sauces Sans Gluten et Sans Lactose</li>
-        <li><span class="star">+</span> 30 Jours de Garantie Satisfait ou Remboursé</li>
-        <li><span class="star">+</span> Accès Immédiat et à Vie</li>
-        <li><span class="star">+</span> Paiement Unique</li>
+        <li><span class="oferta-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span> 80 recettes testées et approuvées avec des sauces irrésistibles</li>
+        <li><span class="oferta-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Liste de courses et planner hebdomadaire</li>
+        <li><span class="oferta-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Préparation complète étape par étape</li>
+        <li><span class="oferta-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Méthode des couches, jusqu'à 7 jours sans ramollir</li>
+        <li><span class="oferta-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span> 4 bonus exclusifs inclus</li>
+        <li><span class="oferta-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Bonus extra : Sauces Secrètes du Chef</li>
+        <li><span class="oferta-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Accès immédiat et à vie à l'application</li>
+        <li><span class="oferta-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg></span> Version PDF à imprimer avec guide inclus</li>
       </ul>
-      <div class="price-anchor">Valeur : €57,00</div>
-      <div class="price-main">€19,90</div>
+      <div class="price-anchor">Valeur : €80,00</div>
+      <div class="price-main">€24,99</div>
       <a href="https://pay.mycheckoutt.com/019ea88b-f318-73d3-8dba-ea26eff602db?ref=" class="btn-primary">JE VEUX MON ACCÈS MAINTENANT</a>
-      <div style="font-size:13px; font-weight:700; color:#C0392B; text-align:center; margin-top:14px; text-transform:uppercase; letter-spacing:0.04em;">*OFFRE VALABLE JUSQU'À AUJOURD'HUI*</div>
+      <div style="color:var(--charcoal); font-size:13px; margin-top:14px; text-align:center;">💳 Paiement en une fois uniquement</div>
+      <div style="font-size:13px; font-weight:700; color:#C0392B; text-align:center; margin-top:10px; text-transform:uppercase; letter-spacing:0.04em;">*OFFRE VALABLE JUSQU'À AUJOURD'HUI*</div>
 
-      <div style="color:var(--charcoal); font-size:13px; margin-top:16px; text-align:center;">🔒 Paiement 100% sécurisé</div>
+    </div>
+  </div>
+</section>
 
-      <div style="background:var(--light-sage); border-radius:12px; padding:18px 16px; margin-top:20px;">
-        <div style="display:flex; justify-content:center; gap:10px; margin-bottom:14px;">
-          <div style="background:var(--charcoal); color:white; border-radius:8px; padding:8px 14px; text-align:center; min-width:54px;">
-            <div id="offerMinutes" style="font-family:'Inter',sans-serif; font-weight:800; font-size:20px; line-height:1;">15</div>
-            <div style="font-size:9px; letter-spacing:0.05em; opacity:0.7; margin-top:2px;">MIN</div>
-          </div>
-          <div style="display:flex; align-items:center; font-weight:800; color:var(--charcoal); font-size:18px;">:</div>
-          <div style="background:var(--charcoal); color:white; border-radius:8px; padding:8px 14px; text-align:center; min-width:54px;">
-            <div id="offerSeconds" style="font-family:'Inter',sans-serif; font-weight:800; font-size:20px; line-height:1;">00</div>
-            <div style="font-size:9px; letter-spacing:0.05em; opacity:0.7; margin-top:2px;">SEC</div>
-          </div>
-        </div>
-
-        <div style="font-size:13px; color:#555; text-align:center;">
-          <span style="color:var(--terracotta);">●</span> <strong id="viewersCount">47 personnes</strong> regardent cette page maintenant • Plus que <strong>8 places</strong> à ce prix
-        </div>
+<!-- AVIS RAPIDES -->
+<section class="avis-rapides">
+  <div class="container">
+    <h2 class="section-title">ELLES ONT CHANGÉ LEUR QUOTIDIEN ♡</h2>
+    <div class="avis-grid">
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">"Enfin une méthode simple et réaliste. Je mange mieux sans me priver et j'ai déjà perdu 4 kg en 3 semaines."</p>
+        <div class="avis-author">— Julie</div>
       </div>
-
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">"Les recettes sont délicieuses et rapides, je ne me lasse pas des menus. C'est devenu un vrai plaisir !"</p>
+        <div class="avis-author">— Nadia</div>
+      </div>
+      <div class="avis-card">
+        <div class="avis-stars">★★★★★</div>
+        <p class="avis-text">"Camille est à l'écoute et ses conseils sont toujours justes et bienveillants. Je recommande à 100% !"</p>
+        <div class="avis-author">— Laura</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1171,50 +1289,10 @@
     <p style="font-family:'Dancing Script',cursive; font-size:clamp(28px,5vw,42px); color:var(--emerald); text-align:center; margin-bottom:28px;">Camille Morel</p>
     <img loading="lazy" decoding="async" src="images/nutri.webp" alt="Camille Morel, nutritionniste" style="width:100%; max-width:380px; aspect-ratio:4/5; border-radius:16px; display:block; margin:0 auto 24px; object-fit:cover; box-shadow: 0 4px 24px rgba(45,106,79,0.12); border: 3px solid var(--mid-sage);">
     <p class="autora-bio">Mes recettes de Salades en Bocal et Sauces Irrésistibles ont toujours eu beaucoup de succès sur internet. J'ai décidé de rassembler les 80 meilleures recettes en un seul endroit pour partager ce savoir-faire avec vous.</p>
-  </div>
-</section>
 
-<!-- FAQ -->
-<section class="faq">
-  <div class="container">
-    <div class="faq-divider"><span>QUESTIONS FRÉQUENTES</span></div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question">Comment vais-je recevoir mes recettes ? <span class="faq-arrow">▾</span></button>
-        <div class="faq-answer">Dès confirmation du paiement, vous recevez immédiatement par e-mail le lien pour accéder à tous les guides numériques.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Le guide est-il garanti ? <span class="faq-arrow">▾</span></button>
-        <div class="faq-answer">Oui ! Garantie inconditionnelle de 30 jours. Si vous n'êtes pas satisfaite, nous vous remboursons 100% du montant payé, sans question.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Ai-je besoin de bocaux spéciaux ? <span class="faq-arrow">▾</span></button>
-        <div class="faq-answer">Non ! La méthode fonctionne avec n'importe quel bocal à couvercle que vous avez déjà chez vous.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Les recettes incluent-elles les sauces ? <span class="faq-arrow">▾</span></button>
-        <div class="faq-answer">Oui ! Chaque recette est accompagnée de sa sauce exclusive.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Quanto tempo dura a salada en bocal na geladeira? <span class="faq-arrow">▾</span></button>
-        <div class="faq-answer">Grâce à la méthode des couches, la salade se conserve jusqu'à 7 jours au réfrigérateur sans se ramollir.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Puis-je préparer toutes mes salades d'un coup le week-end ? <span class="faq-arrow">▾</span></button>
-        <div class="faq-answer">Exactement ! Préparez tout le dimanche et profitez de salades fraîches toute la semaine.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Les recettes sont-elles faciles à réaliser ? <span class="faq-arrow">▾</span></button>
-        <div class="faq-answer">Toutes les recettes ont été conçues pour être simples et rapides, quel que soit votre niveau en cuisine.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Les ingrédients sont-ils faciles à trouver ? <span class="faq-arrow">▾</span></button>
-        <div class="faq-answer">Oui ! Tous les ingrédients sont disponibles dans les supermarchés habituels.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question">Ai-je besoin d'une balance ou d'ustensiles spécifiques ? <span class="faq-arrow">▾</span></button>
-        <div class="faq-answer">Non. Les mesures sont indiquées en cuillères et en verres du quotidien.</div>
-      </div>
+    <div style="background:var(--emerald); border-radius:14px; padding:24px 28px; max-width:420px; margin:36px auto 0; text-align:center;">
+      <p style="color:white; font-family:'Inter',sans-serif; font-size:14px; font-weight:600; margin-bottom:8px;">Une question ? Écris-nous, on te répond avec plaisir 📩</p>
+      <a href="mailto:lanovdigital@gmail.com" style="color:white; font-family:'Inter',sans-serif; font-size:14px; font-weight:700; text-decoration:underline;">📧 lanovdigital@gmail.com</a>
     </div>
   </div>
 </section>
@@ -1226,61 +1304,25 @@
     <a href="conditions.html">Conditions d'utilisation</a>
     <a href="confidentialite.html">Politique de confidentialité</a>
     <a href="remboursement.html">Politique de remboursement</a>
-    <a href="contact.html">Contact</a>
   </div>
   <div class="footer-copy">© 2025 Camille Morel · Tous droits réservés · Produit numérique</div>
 </footer>
 
 <script>
-  // Countdown timer - 15 minutos, reinicia ao expirar (urgência persistente)
+  // Header auto-hide ao rolar para baixo, reaparece ao rolar para cima
   (function() {
-    const STORAGE_KEY = 'countdownEndTime';
-    let endTime = sessionStorage.getItem(STORAGE_KEY);
-    if (!endTime || parseInt(endTime) < Date.now()) {
-      endTime = Date.now() + 15 * 60 * 1000;
-      sessionStorage.setItem(STORAGE_KEY, endTime);
-    } else {
-      endTime = parseInt(endTime);
-    }
-
-    function updateCountdown() {
-      let total = endTime - Date.now();
-      if (total <= 0) {
-        endTime = Date.now() + 15 * 60 * 1000;
-        sessionStorage.setItem(STORAGE_KEY, endTime);
-        total = endTime - Date.now();
+    const header = document.getElementById('mainHeader');
+    if (!header) return;
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > lastScroll && currentScroll > 80) {
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        header.style.transform = 'translateY(0)';
       }
-      const minutes = Math.floor(total / 60000);
-      const seconds = Math.floor((total % 60000) / 1000);
-      const formatted = `${String(minutes).padStart(2,'0')}:${String(seconds).padStart(2,'0')}`;
-
-      // Cabeçalho fixo
-      const headerEl = document.getElementById('countdownTimer');
-      if (headerEl) headerEl.textContent = formatted;
-
-      // Bloco de oferta (mesmos valores, mesmo tempo)
-      const mEl = document.getElementById('offerMinutes');
-      const sEl = document.getElementById('offerSeconds');
-      if (mEl) mEl.textContent = String(minutes).padStart(2, '0');
-      if (sEl) sEl.textContent = String(seconds).padStart(2, '0');
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-  })();
-
-  // Contador de visualizações com leve flutuação
-  (function() {
-    const el = document.getElementById('viewersCount');
-    if (!el) return;
-    function fluctuate() {
-      const base = 47;
-      const variation = Math.floor(Math.random() * 7) - 3; // -3 a +3
-      const count = Math.max(32, base + variation);
-      el.textContent = `${count} personnes`;
-    }
-    fluctuate();
-    setInterval(fluctuate, 8000);
+      lastScroll = currentScroll <= 0 ? 0 : currentScroll;
+    });
   })();
 
   document.querySelectorAll('.faq-question').forEach(btn => {
